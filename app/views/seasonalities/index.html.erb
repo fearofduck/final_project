@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h1>
+    Seasonalities
+    <a href="/seasonalities/new" class="btn btn-lg btn-success">New Seasonality</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Seas ds 40</th>
+        <th>Seas ds 53</th>
+        <th>Conv</th>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @seasonalities.each do |seasonality| %>
+      <tr>
+        <td><%= seasonality.seas_ds_40 %></td>
+        <td><%= seasonality.seas_ds_53 %></td>
+        <td><%= seasonality.conv %></td>
+        <td><%= seasonality.name %></td>
+        <td>
+          <a href="/seasonalities/<%= seasonality.id %>" class="btn btn-primary">Show</a>
+          <a href="/seasonalities/<%= seasonality.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_seasonality/<%= seasonality.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

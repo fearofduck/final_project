@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Seasonality resource:
+  # CREATE
+  get "/seasonalities/new", :controller => "seasonalities", :action => "new"
+  post "/create_seasonality", :controller => "seasonalities", :action => "create"
+
+  # READ
+  get "/seasonalities", :controller => "seasonalities", :action => "index"
+  get "/seasonalities/:id", :controller => "seasonalities", :action => "show"
+
+  # UPDATE
+  get "/seasonalities/:id/edit", :controller => "seasonalities", :action => "edit"
+  post "/update_seasonality/:id", :controller => "seasonalities", :action => "update"
+
+  # DELETE
+  get "/delete_seasonality/:id", :controller => "seasonalities", :action => "destroy"
+  #------------------------------
+
   # Routes for the Forecast resource:
   # CREATE
   get "/forecasts/new", :controller => "forecasts", :action => "new"
