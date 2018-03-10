@@ -1,4 +1,6 @@
 ActiveAdmin.register Forecast do
+
+ permit_params :growth, :seasonality_id, :user_id, :cycle_time_id, :intl_in_53, :dc_in_conv, :comment_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
