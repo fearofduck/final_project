@@ -51,7 +51,7 @@
           Cycle time
         </label>
 
-        <input type="text" id="cycle_time_id" name="cycle_time_id" placeholder="Cycle time" class="form-control" value="<%= @forecast.cycle_time_id %>">
+        <%= select_tag(:cycle_time_id, options_from_collection_for_select(CycleTime.all, :id, :ct_ds_40, @forecast.cycle_time_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for intl_in_53 -->
