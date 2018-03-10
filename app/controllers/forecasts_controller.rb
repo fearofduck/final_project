@@ -10,7 +10,7 @@ class ForecastsController < ApplicationController
   end
 
   def index
-    @forecasts = Forecast.all
+    @forecasts = current_user.forecasts.page(params[:page]).per(10)
 
     render("forecasts/index.html.erb")
   end
