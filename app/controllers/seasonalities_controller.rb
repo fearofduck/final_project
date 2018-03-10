@@ -1,6 +1,6 @@
 class SeasonalitiesController < ApplicationController
   def index
-    @seasonalities = Seasonality.all
+    @seasonalities = Seasonality.page(params[:page]).per(10)
 
     render("seasonalities/index.html.erb")
   end

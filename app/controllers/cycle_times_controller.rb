@@ -1,6 +1,6 @@
 class CycleTimesController < ApplicationController
   def index
-    @cycle_times = CycleTime.all
+    @cycle_times = CycleTime.page(params[:page]).per(10)
 
     render("cycle_times/index.html.erb")
   end
