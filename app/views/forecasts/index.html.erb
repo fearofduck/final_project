@@ -27,7 +27,7 @@
         <td><%= forecast.cycle_time.ct_ds_40 %></td>
         <td><%= forecast.intl_in_53 %></td>
         <td><%= forecast.dc_in_conv %></td>
-        <td><%= forecast.comment_id %></td>
+        <td><%= forecast.comment.user_id %></td>
         <td>
           <a href="/forecasts/<%= forecast.id %>" class="btn btn-primary">Show</a>
           <a href="/forecasts/<%= forecast.id %>/edit" class="btn btn-warning">Edit</a>
