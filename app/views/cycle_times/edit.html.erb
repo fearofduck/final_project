@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @cycle_time.errors.any? %>
+  <% @cycle_time.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Cycle Time #<%= @cycle_time.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_cycle_time/<%= @cycle_time.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for ct_ds_40 -->
+      <div class="form-group">
+        <label for="ct_ds_40" class="control-label">
+          Ct ds 40
+        </label>
+
+        <input type="text" id="ct_ds_40" name="ct_ds_40" placeholder="Ct ds 40" class="form-control" value="<%= @cycle_time.ct_ds_40 %>">
+      </div>
+
+      <!-- Label and input for ct_ds_53 -->
+      <div class="form-group">
+        <label for="ct_ds_53" class="control-label">
+          Ct ds 53
+        </label>
+
+        <input type="text" id="ct_ds_53" name="ct_ds_53" placeholder="Ct ds 53" class="form-control" value="<%= @cycle_time.ct_ds_53 %>">
+      </div>
+
+      <!-- Label and input for conv -->
+      <div class="form-group">
+        <label for="conv" class="control-label">
+          Conv
+        </label>
+
+        <input type="text" id="conv" name="conv" placeholder="Conv" class="form-control" value="<%= @cycle_time.conv %>">
+      </div>
+
+      <!-- Label and input for scenario -->
+      <div class="form-group">
+        <label for="scenario" class="control-label">
+          Scenario
+        </label>
+
+        <input type="text" id="scenario" name="scenario" placeholder="Scenario" class="form-control" value="<%= @cycle_time.scenario %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Cycle Time
+      </button>
+      or
+      <a href="/cycle_times/<%= @cycle_time.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
