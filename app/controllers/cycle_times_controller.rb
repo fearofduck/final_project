@@ -1,6 +1,7 @@
 class CycleTimesController < ApplicationController
   def index
-    @cycle_times = CycleTime.page(params[:page]).per(10)
+    @q = CycleTime.ransack(params[:q])
+    @cycle_times = @q.result(:distinct => true).includes(:forecasts).page(params[:page]).per(10)
 
     render("cycle_times/index.html.erb")
   end
