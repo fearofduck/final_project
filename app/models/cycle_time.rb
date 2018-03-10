@@ -5,4 +5,6 @@ class CycleTime < ApplicationRecord
 
   # Validations
 
+  validates :ct_ds_53, :numericality => { :greater_than => 0 }
+
 end
