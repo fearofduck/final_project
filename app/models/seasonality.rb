@@ -5,4 +5,6 @@ class Seasonality < ApplicationRecord
 
   # Validations
 
+  validates :seas_ds_53, :numericality => { :less_than => 1, :greater_than => 0 }
+
 end
