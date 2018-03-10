@@ -9,13 +9,31 @@
       <dd><%= @forecast.growth %></dd>
 
       <dt>Seasonality</dt>
-      <dd><%= @forecast.seasonality_id %></dd>
+      <dd>
+        <% if @forecast.seasonality.present? %>
+          <a href="/seasonalities/<%= @forecast.seasonality_id %>">
+            <%= @forecast.seasonality.seas_ds_40 %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>User</dt>
-      <dd><%= @forecast.user_id %></dd>
+      <dd>
+        <% if @forecast.user.present? %>
+          <a href="/users/<%= @forecast.user_id %>">
+            <%= @forecast.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Cycle time</dt>
-      <dd><%= @forecast.cycle_time_id %></dd>
+      <dd>
+        <% if @forecast.cycle_time.present? %>
+          <a href="/cycle_times/<%= @forecast.cycle_time_id %>">
+            <%= @forecast.cycle_time.ct_ds_40 %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Intl in 53</dt>
       <dd><%= @forecast.intl_in_53 %></dd>
@@ -24,7 +42,13 @@
       <dd><%= @forecast.dc_in_conv %></dd>
 
       <dt>Comment</dt>
-      <dd><%= @forecast.comment_id %></dd>
+      <dd>
+        <% if @forecast.comment.present? %>
+          <a href="/comments/<%= @forecast.comment_id %>">
+            <%= @forecast.comment.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
