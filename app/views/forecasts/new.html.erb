@@ -33,7 +33,7 @@
           Seasonality
         </label>
 
-        <input type="text" id="seasonality_id" name="seasonality_id" placeholder="Seasonality" class="form-control" value="<%= @forecast.seasonality_id %>">
+        <%= select_tag(:seasonality_id, options_from_collection_for_select(Seasonality.all, :id, :seas_ds_40, @forecast.seasonality_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for user_id -->
