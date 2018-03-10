@@ -6,6 +6,7 @@ class SeasonalitiesController < ApplicationController
   end
 
   def show
+    @forecast = Forecast.new
     @seasonality = Seasonality.find(params[:id])
 
     render("seasonalities/show.html.erb")

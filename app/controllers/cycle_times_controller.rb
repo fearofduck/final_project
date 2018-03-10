@@ -6,6 +6,7 @@ class CycleTimesController < ApplicationController
   end
 
   def show
+    @forecast = Forecast.new
     @cycle_time = CycleTime.find(params[:id])
 
     render("cycle_times/show.html.erb")

@@ -60,6 +60,68 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_forecast" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for growth -->
+      <div class="form-group">
+        <label for="growth" class="control-label">
+          Growth
+        </label>
+
+        <input type="text" id="growth" name="growth" placeholder="Growth" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for seasonality_id -->
+      <input type="hidden" name="seasonality_id" value="<%= @seasonality.id %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for cycle_time_id -->
+      <div class="form-group">
+        <label for="cycle_time_id" class="control-label">
+          Cycle time
+        </label>
+
+        <%= select_tag(:cycle_time_id, options_from_collection_for_select(CycleTime.all, :id, :ct_ds_40), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for intl_in_53 -->
+      <div class="form-group">
+        <label for="intl_in_53" class="control-label">
+          Intl in 53
+        </label>
+
+        <input type="text" id="intl_in_53" name="intl_in_53" placeholder="Intl in 53" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for dc_in_conv -->
+      <div class="form-group">
+        <label for="dc_in_conv" class="control-label">
+          Dc in conv
+        </label>
+
+        <input type="text" id="dc_in_conv" name="dc_in_conv" placeholder="Dc in conv" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for comment_id -->
+      <div class="form-group">
+        <label for="comment_id" class="control-label">
+          Comment
+        </label>
+
+        <%= select_tag(:comment_id, options_from_collection_for_select(Comment.all, :id, :user_id), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Forecast
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
