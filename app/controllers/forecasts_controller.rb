@@ -1,4 +1,14 @@
 class ForecastsController < ApplicationController
+  before_action :current_user_must_be_forecast_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_forecast_user
+    forecast = Forecast.find(params[:id])
+
+    unless current_user == forecast.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @forecasts = Forecast.all
 

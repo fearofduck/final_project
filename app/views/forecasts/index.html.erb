@@ -30,8 +30,11 @@
         <td><%= forecast.comment.user_id %></td>
         <td>
           <a href="/forecasts/<%= forecast.id %>" class="btn btn-primary">Show</a>
-          <a href="/forecasts/<%= forecast.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_forecast/<%= forecast.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == forecast.user %>
+            <a href="/forecasts/<%= forecast.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_forecast/<%= forecast.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
