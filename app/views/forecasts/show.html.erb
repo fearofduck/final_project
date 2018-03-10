@@ -1,0 +1,43 @@
+<div class="page-header">
+  <h3>Forecast #<%= @forecast.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Growth</dt>
+      <dd><%= @forecast.growth %></dd>
+
+      <dt>Seasonality</dt>
+      <dd><%= @forecast.seasonality_id %></dd>
+
+      <dt>User</dt>
+      <dd><%= @forecast.user_id %></dd>
+
+      <dt>Cycle time</dt>
+      <dd><%= @forecast.cycle_time_id %></dd>
+
+      <dt>Intl in 53</dt>
+      <dd><%= @forecast.intl_in_53 %></dd>
+
+      <dt>Dc in conv</dt>
+      <dd><%= @forecast.dc_in_conv %></dd>
+
+      <dt>Comment</dt>
+      <dd><%= @forecast.comment_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/forecasts" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/forecasts/<%= @forecast.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_forecast/<%= @forecast.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

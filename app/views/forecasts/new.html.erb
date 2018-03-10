@@ -1,0 +1,91 @@
+<!-- Validation failure messages -->
+<% if @forecast.errors.any? %>
+  <% @forecast.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Forecast</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_forecast" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for growth -->
+      <div class="form-group">
+        <label for="growth" class="control-label">
+          Growth
+        </label>
+
+        <input type="text" id="growth" name="growth" placeholder="Growth" class="form-control" value="<%= @forecast.growth %>">
+      </div>
+
+      <!-- Label and input for seasonality_id -->
+      <div class="form-group">
+        <label for="seasonality_id" class="control-label">
+          Seasonality
+        </label>
+
+        <input type="text" id="seasonality_id" name="seasonality_id" placeholder="Seasonality" class="form-control" value="<%= @forecast.seasonality_id %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @forecast.user_id %>">
+      </div>
+
+      <!-- Label and input for cycle_time_id -->
+      <div class="form-group">
+        <label for="cycle_time_id" class="control-label">
+          Cycle time
+        </label>
+
+        <input type="text" id="cycle_time_id" name="cycle_time_id" placeholder="Cycle time" class="form-control" value="<%= @forecast.cycle_time_id %>">
+      </div>
+
+      <!-- Label and input for intl_in_53 -->
+      <div class="form-group">
+        <label for="intl_in_53" class="control-label">
+          Intl in 53
+        </label>
+
+        <input type="text" id="intl_in_53" name="intl_in_53" placeholder="Intl in 53" class="form-control" value="<%= @forecast.intl_in_53 %>">
+      </div>
+
+      <!-- Label and input for dc_in_conv -->
+      <div class="form-group">
+        <label for="dc_in_conv" class="control-label">
+          Dc in conv
+        </label>
+
+        <input type="text" id="dc_in_conv" name="dc_in_conv" placeholder="Dc in conv" class="form-control" value="<%= @forecast.dc_in_conv %>">
+      </div>
+
+      <!-- Label and input for comment_id -->
+      <div class="form-group">
+        <label for="comment_id" class="control-label">
+          Comment
+        </label>
+
+        <input type="text" id="comment_id" name="comment_id" placeholder="Comment" class="form-control" value="<%= @forecast.comment_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Forecast
+      </button>
+      or
+      <a href="/forecasts">Cancel</a>
+    </form>
+  </div>
+</div>

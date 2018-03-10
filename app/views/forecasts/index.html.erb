@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h1>
+    Forecasts
+    <a href="/forecasts/new" class="btn btn-lg btn-success">New Forecast</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Growth</th>
+        <th>Seasonality</th>
+        <th>User</th>
+        <th>Cycle time</th>
+        <th>Intl in 53</th>
+        <th>Dc in conv</th>
+        <th>Comment</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @forecasts.each do |forecast| %>
+      <tr>
+        <td><%= forecast.growth %></td>
+        <td><%= forecast.seasonality_id %></td>
+        <td><%= forecast.user_id %></td>
+        <td><%= forecast.cycle_time_id %></td>
+        <td><%= forecast.intl_in_53 %></td>
+        <td><%= forecast.dc_in_conv %></td>
+        <td><%= forecast.comment_id %></td>
+        <td>
+          <a href="/forecasts/<%= forecast.id %>" class="btn btn-primary">Show</a>
+          <a href="/forecasts/<%= forecast.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_forecast/<%= forecast.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
