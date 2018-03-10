@@ -5,4 +5,6 @@ class Forecast < ApplicationRecord
 
   # Validations
 
+  validates :intl_in_53, :numericality => { :less_than => 1, :greater_than => 0 }
+
 end
