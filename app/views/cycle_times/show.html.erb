@@ -32,3 +32,34 @@
     </div>
   </div>
 </div>
+
+<!-- A Cycle time has many forecasts -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Forecasts
+      </li>
+
+      <% @cycle_time.forecasts.each do |forecast| %>
+        <li class="list-group-item">
+          <a href="/forecasts/<%= forecast.id %>">
+            <%= forecast.growth %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/forecasts/<%= forecast.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/forecasts/<%= forecast.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_forecast/<%= forecast.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
